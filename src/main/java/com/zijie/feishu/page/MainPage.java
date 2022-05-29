@@ -45,5 +45,11 @@ public class MainPage extends BasePage {
         click(By.id("menu_contacts"));
         return new AddressBookPage(driver);
     }
+    public MyBusinessPage myBusinessPage(){
+        wait(ExpectedConditions.elementToBeClickable(By.id("menu_profile")),60);
+        click(By.id("menu_profile"));
+        return new MyBusinessPage(driver);
+
+    }
 
 }
