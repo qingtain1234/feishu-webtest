@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 public class BasePage {
     WebDriver driver;
@@ -51,6 +54,38 @@ public class BasePage {
     //弹窗-取消
     public void alertCancel(){
         driver.switchTo().alert().dismiss();
+    }
+
+    //清空输入框
+    public void clearInput(By by){
+        driver.findElement(by).clear();
+    }
+
+    //上传图片todo
+    public void uploadPicture(String path) throws AWTException {
+        StringSelection selection=new StringSelection("D:\\selenium.png");
+        //把图文文件路径复制到剪贴板
+        Toolkit .getDefaultToolkit().getSystemClipboard().setContents(selection,null);
+        System.out.println("selection"+selection);
+        //新建Robot类
+        Robot robot=new Robot();
+//        //按下回车
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        //释放回车
+//        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        //按下CTRL+V
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+
+        //释放CTRL+V
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+
+        //点击回车Enter
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
     }
 
 }

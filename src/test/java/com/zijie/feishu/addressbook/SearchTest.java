@@ -27,7 +27,6 @@ public class SearchTest {
         String text= addressBookPage.getaddMemberSearchTextByName();
         mainPage.quitBrowser();
         assertThat(text,containsString(name));
-
     }
 
 }

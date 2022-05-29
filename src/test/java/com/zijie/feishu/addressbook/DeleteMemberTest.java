@@ -48,7 +48,7 @@ public class DeleteMemberTest {
         addressBookPage.searchMemberByKeyWord(name);
         addressBookPage.deleteMemberCloseAlert();
         String text= addressBookPage.getaddMemberSearchTextByName();
-        addressBookPage.quitBrowser();
+//        addressBookPage.quitBrowser();
         assertThat(text,containsString("annie"));
 
 

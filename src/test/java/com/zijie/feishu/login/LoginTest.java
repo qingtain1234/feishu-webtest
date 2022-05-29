@@ -22,7 +22,7 @@ public class LoginTest {
      * @throws InterruptedException
      */
     @Test
-    void testLogined() throws IOException, InterruptedException {
+    void testLogined() throws IOException{
        LoginPage loginPage=new LoginPage();
        loginPage.logined();
     }

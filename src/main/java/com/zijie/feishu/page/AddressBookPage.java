@@ -40,6 +40,11 @@ public class AddressBookPage extends BasePage{
         String text=getText(By.cssSelector(".member_display_cover_detail>div:nth-of-type(3)"));;
         return text;
     }
+    //获取别名
+    public String  getaddMemberSearchTextByEnglishName(){
+        String text=getText(By.cssSelector(".member_display_cover_detail>div:nth-of-type(2)"));;
+        return text;
+    }
 
     public void deleteMemberSubmit(){
         click(By.cssSelector(".js_del_member"));
@@ -55,5 +60,17 @@ public class AddressBookPage extends BasePage{
         click(By.cssSelector(".qui_dialog_close"));
     }
 
+    public void editMember(String englishName){
+      click(By.cssSelector(".js_edit"));
+      clearInput(By.name("english_name"));
+      sendKeys(By.name("english_name"),englishName);
+      click(By.cssSelector(".js_member_editor_form>div:nth-of-type(1)>a:nth-of-type(1)"));
+      
+    }
+
+    //清空别名输入框
+    public void clearEnglishName(By by){
+       clearInput(by);
+    }
 
 }
